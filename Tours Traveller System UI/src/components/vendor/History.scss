@@ -1,0 +1,45 @@
+.History-MainContainer {
+    height: 100%;
+    width: 100%;
+
+    .History-MainSubContainer {
+        height: 100%;
+        width: 100%;
+
+        .History-MainSubContainer-Header {
+            height: 8%;
+            width: 100%;
+            background-color: rgb(1, 1, 56);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: "Roboto";
+        }
+
+        .History-MainSubContainer-Body {
+            height: 84%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .History-MainSubContainer-Footer {
+            height: 8%;
+            width: 100%;
+            height: 8%;
+            width: 100%;
+            background-color: #b3bcdd;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+
+            .MuiPaginationItem-outlinedSecondary.Mui-selected {
+                background-color: #007bff;
+                color: white;
+                border: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+.Admin-Container {
+    height: 100%;
+    width: 100%;
+    font-family: "Roboto";
+
+    .Admin-Container-Header {
+        background-color: rgb(1, 1, 56);
+        width: 100%;
+        height: 8%;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .Admin-Container-Body {
+        padding: 10px;
+        box-sizing: border-box;
+        height: 84%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        .Admin-Container-Body-Box1 {
+            width: 0%;
+            height: 100%;
+            // border: 0.5px solid lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .Admin-Container-Body-Box1-profile {
+                height: 300px;
+                width: 80%;
+                // border: 0.5px solid lightgray;
+                box-sizing: border-box;
+                display: flex;
+                // align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+        }
+
+        .Admin-Container-Body-Box2 {
+            width: 100%;
+            height: 100%;
+            // border: 0.5px solid lightgray;
+            padding: 20px;
+            box-sizing: border-box;
+            color: black;
+        }
+    }
+
+    .Admin-Container-Footer {
+        width: 100%;
+        height: 8%;
+        background-color: #b3bcdd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

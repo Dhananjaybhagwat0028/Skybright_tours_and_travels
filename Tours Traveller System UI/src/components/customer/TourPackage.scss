@@ -1,0 +1,147 @@
+.TourPackage-Container {
+  height: 100%;
+  width: 100%;
+  color: black;
+
+  .TourPack-Header {
+    height: 8%;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 0.5px solid black;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(1, 1, 56);
+
+    .subHeaderText {
+      font-size: large;
+      font-weight: 500;
+      color: white;
+    }
+  }
+
+  .TourPack-Body {
+    height: 84%;
+    width: 100%;
+    // border: 0.5px solid black;
+  }
+
+  .TourPack-Footer {
+    height: 8%;
+    width: 100%;
+    border-top: 0.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.Model-Create-TourPackage,
+.Model-Create-Feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Model-Create-TourPackage-Main {
+  background-color: white;
+  box-shadow: 5px;
+  /* padding: 5px; */
+  width: 1300px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.Model-Create-TourPackage-Header,
+.Model-Create-Feedback-Header {
+  width: 100%;
+  height: 10%;
+  border-bottom: 0.5px solid lightgray;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  font-family: "Roboto";
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+.Model-Create-TourPackage-Body,
+.Model-Create-Feedback-Body {
+  width: 100%;
+  height: 80%;
+  /* border: 0.5px solid lightgray; */
+  box-sizing: border-box;
+  padding: 10px 20px;
+
+  overflow: auto;
+}
+
+.Model-Create-TourPackage-Body::-webkit-scrollbar {
+  display: none;
+}
+
+.Model-Create-TourPackage-Body-PlanType,
+.Model-Create-TourPackage-Body-IssueType {
+  width: 400px;
+}
+
+.Line {
+  border-bottom: 0.5px solid lightgray;
+  margin: 0 0 20px 0;
+}
+
+.Model-Create-TourPackage-Body-Summary {
+  width: 800px;
+}
+
+.Model-Create-TourPackage-Footer,
+.Model-Create-Feedback-Footer {
+  width: 100%;
+  height: 10%;
+  border-top: 0.5px solid lightgray;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 0 0 5px 5px;
+  font-weight: 500;
+}
+
+.FirstList {
+  overflow: auto;
+  //   border: 1px solid red;F
+}
+
+.FirstList ::-webkit-scrollbar {
+  display: none;
+}
+
+.Model-Create-Ticket-Body-Row {
+  margin: 15px;
+  box-sizing: border-box;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+}
+
+.CartDetail {
+  display: flex;
+  justify-content: center;
+}
+
+// .font-Styles {
+//   width: 30%;
+//   display: flex;
+//   justify-Content: "flex-start";
+//   margin: "10px 0 10px 15px";
+//   font-weight: 500;
+// }

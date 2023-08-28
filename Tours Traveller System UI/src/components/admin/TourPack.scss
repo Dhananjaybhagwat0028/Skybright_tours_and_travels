@@ -1,0 +1,125 @@
+.Container {
+  height: 100%;
+  width: 100%;
+  color: black;
+
+  .TourPack-Header {
+    height: 8%;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 0.5px solid black;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(1, 1, 56);
+
+    .subHeaderText {
+      font-size: large;
+      font-weight: 500;
+      color: white;
+    }
+  }
+
+  .TourPack-Body {
+    height: 84%;
+    width: 100%;
+    // border: 0.5px solid black;
+  }
+
+  .TourPack-Footer {
+    height: 8%;
+    width: 100%;
+    border-top: 0.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.Model-Create-Tour,
+.Model-Create-Feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Model-Create-Tour-Main {
+  background-color: white;
+  box-shadow: 5px;
+  /* padding: 5px; */
+  width: 1450px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.Model-Create-Tour-Header,
+.Model-Create-Feedback-Header {
+  width: 100%;
+  height: 10%;
+  border-bottom: 0.5px solid lightgray;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  font-family: "Roboto";
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+.Model-Create-Tour-Body,
+.Model-Create-Feedback-Body {
+  width: 100%;
+  height: 80%;
+  /* border: 0.5px solid lightgray; */
+  box-sizing: border-box;
+  padding: 10px 20px;
+
+  overflow: auto;
+}
+
+.Model-Create-Tour-Body::-webkit-scrollbar {
+  display: none;
+}
+
+.Model-Create-Tour-Body-PlanType,
+.Model-Create-Tour-Body-IssueType {
+  width: 400px;
+}
+
+.Line {
+  border-bottom: 0.5px solid lightgray;
+  margin: 0 0 20px 0;
+}
+
+.Model-Create-Tour-Body-Summary {
+  width: 800px;
+}
+
+.Model-Create-Tour-Footer,
+.Model-Create-Feedback-Footer {
+  width: 100%;
+  height: 10%;
+  border-top: 0.5px solid lightgray;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 0 0 5px 5px;
+}
+
+.FirstList {
+  overflow: auto;
+//   border: 1px solid red;F
+}
+
+.FirstList ::-webkit-scrollbar {
+  display: none;
+}

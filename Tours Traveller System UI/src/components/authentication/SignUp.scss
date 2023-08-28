@@ -1,0 +1,118 @@
+.SignUp-Container {
+  height: 100%;
+  width: 100%;
+  // width: 1366px;
+  .SignUp-SubContainer {
+    height: inherit;
+    width: inherit;
+
+    .Body {
+      width: 100%;
+      height: 90%;
+      background-color: rgb(255, 255, 255);
+
+      .Sub-Body1 {
+        width: 100%;
+        height: 90%;
+        // border: 0.5px solid black;
+        box-sizing: border-box;
+        display: flex;
+
+        .Sub-Sub-Body1 {
+          width: 55%;
+          height: 100%;
+          // border: 0.5px solid black;
+          box-sizing: border-box;
+
+          .Sub-Sub-Body1-Header {
+            height: 20%;
+            width: 100%;
+            // border: 0.5px solid black;
+            box-sizing: border-box;
+            padding: 20px;
+            font-family: "Roboto";
+            font-weight: 600;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            color: Red;
+          }
+
+          .Sub-Sub-Body1-Image {
+            height: 80%;
+            width: 100%;
+            // border: 0.5px solid black;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .HomeImage {
+              height: 90%;
+              width: 88%;
+            }
+          }
+        }
+
+        .Sub-Sub-Body2 {
+          width: 45%;
+          height: 100%;
+          // border: 0.5px solid black;
+          box-sizing: border-box;
+          padding: 20px 100px 20px 20px;
+
+          .Sub-Sub-Body2-Header {
+            font-family: "Roboto";
+            font-weight: 600;
+            font-size: 25px;
+          }
+
+          .Sub-Sub-Body2-Form {
+            margin: 50px 0px;
+
+            .Sub-Form1 {
+              width: 100%;
+              height: 20%;
+
+              .TextField {
+                background-color: white;
+                border-radius: 5px;
+              }
+            }
+
+            .Sub-Form2 {
+              width: 100%;
+              height: 80%;
+              display: flex;
+              flex-direction: column;
+
+              .TextField {
+                background-color: white;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+
+      .Sub-Body2 {
+        width: 100%;
+        height: 10%;
+        border-top: 0.5px solid black;
+        box-sizing: border-box;
+        padding: 10px;
+        font-weight: 600;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.TextField {
+  background-color: white;
+  border-radius: 5px;
+}

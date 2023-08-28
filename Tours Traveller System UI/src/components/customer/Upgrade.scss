@@ -1,0 +1,198 @@
+.Upgrade-Container,
+.MyPackages-MainContainer {
+    height: 100%;
+    width: 100%;
+    // padding: 5px;
+    box-sizing: border-box;
+    .Upgrade-SubContainer,
+    .MyPackages-SubContainer {
+        height: 100%;
+        width: 100%;
+        .Upgrade-Container-Header {
+            width: 100%;
+            height: 10%;
+            background-color: rgb(1, 1, 56);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+
+            .Upgrade-Container-Header-Part1 {
+                color: white;
+                font-family: "Roboto";
+                font-weight: 600;
+                font-size: 20px;
+            }
+
+            .Upgrade-Container-Header-Part2 {
+            }
+        }
+
+        .Upgrade-Container-Body {
+            height: 80%;
+            width: 100%;
+            display: flex;
+            padding: 5px;
+            box-sizing: border-box;
+            // flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+
+            .Upgrade-Container-SubBody {
+                height: 280px;
+                width: 200px;
+                border: 0.5px solid lightgray;
+                margin: 5px;
+
+                .Upgrade-Container-Body-Image {
+                    width: 100%;
+                    height: 180px;
+                    // border: 0.5px solid red;
+                    box-sizing: border-box;
+                }
+
+                .Upgrade-Container-Body-Body {
+                    width: 100%;
+                    height: 100px;
+                    padding: 0px 5px;
+                    // border: 0.5px solid black;
+                    box-sizing: border-box;
+                    font-family: "Roboto";
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .Upgrade-Container-Body-Body-ProductName {
+                        width: 100%;
+                        font-size: 20px;
+                        font-weight: 600;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: rgb(63, 3, 60);
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+
+                    .Upgrade-Container-Body-Body-ProductPrice {
+                        width: 100%;
+                        font-size: 15px;
+                        font-weight: 550;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: rgb(63, 3, 60);
+                    }
+
+                    .Upgrade-Container-Body-Body-ProductType {
+                        // border: 0.5px solid black;
+                        border-radius: 2px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 15px;
+                        font-weight: 550;
+                    }
+
+                    .Upgrade-Container-Body-Body-ProductButton {
+                        background-color: #06c400;
+                        color: white;
+                        height: 22px;
+                        margin: 5px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .Upgrade-Container-Footer {
+            width: 100%;
+            height: 10%;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+
+            .MuiPaginationItem-outlinedSecondary.Mui-selected {
+                background-color: #007bff;
+                color: white;
+                border: none;
+            }
+        }
+    }
+}
+
+.Model-Open-Package {
+    height: 100%;
+    width: 100%;
+    // background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Model-Open-Package-Sub {
+        background-color: white;
+        height: 600px;
+        width: 600px;
+        border-radius: 10px;
+        font-family: "Roboto";
+
+        .Model-Open-Package-Sub-Header {
+            width: 100%;
+            height: 10%;
+            background-color: lightblue;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .Model-Open-Package-Sub-Body {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+            .Model-Open-Package-Sub-Body-Title,
+            .Model-Open-Package-Sub-Body-Price,
+            .Model-Open-Package-Sub-Body-Description,
+            .Model-Open-Package-Sub-Body-Image,
+            .Model-Open-Package-Sub-Body-Type {
+                width: fit-content;
+                font-weight: 500;
+                margin: 8px;
+            }
+
+            .Model-Open-Package-Sub-Body-Price {
+                font-size: 18px;
+                font-weight: 600;
+                color: crimson;
+            }
+
+            .Model-Open-Package-Sub-Body-Image {
+                height: 250px;
+                width: 250px;
+            }
+
+            .Model-Open-Package-Sub-Body-Operation {
+                .Button {
+                    margin: 10px;
+                }
+            }
+        }
+
+        .Model-Open-Package-Sub-Footer {
+            width: 100%;
+            height: 10%;
+            // background-color: lightgray;
+        }
+    }
+}

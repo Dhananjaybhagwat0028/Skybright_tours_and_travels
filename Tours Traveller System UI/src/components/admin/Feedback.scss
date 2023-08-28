@@ -1,0 +1,40 @@
+.Feedback-MainContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Feedback-MainSubContainer {
+        height: 100%;
+        width: 100%;
+        font-family: "Roboto";
+
+        .Feedback-MainSubContainer-Header {
+            height: 8%;
+            width: 100%;
+            background-color: rgb(1, 1, 56);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        .Feedback-MainSubContainer-Main {
+            height: 84%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .Feedback-MainSubContainer-Footer {
+            height: 8%;
+            width: 100%;
+            background-color: #b3bcdd;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    }
+}
