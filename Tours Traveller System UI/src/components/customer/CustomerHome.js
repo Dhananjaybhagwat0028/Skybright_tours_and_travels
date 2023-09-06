@@ -179,10 +179,17 @@ export default class CustomerHome extends Component {
 
   handleSelectDate = (e) => {
     const { name, value } = e.target;
-    this.setState(
-      { [name]: value },
-      console.log("name : ", name, "Value : ", value)
-    );
+    const today = new Date();
+    const selectedDate = new Date(value);
+
+    if (selectedDate < today) {
+      // Prevent selecting prior dates
+      return;
+    }
+
+    this.setState({
+      [name]: value,
+    });
 
     this.AvailableSeat(value);
   };
@@ -202,18 +209,33 @@ export default class CustomerHome extends Component {
   };
 
   handleOpenBookingModel = (data) => {
-    this.setState({
-      OpenTicketBookingModel: true,
-      FlightID: data.flightID,
-      FlightName: data.flightName,
-      To: data.to,
-      Destination: data.destination,
-      FlightPrice: data.price,
-      FlightPriceOperational: data.price,
-      Company: data.company,
-      Time: data.time,
-      FlightDescription: data.description,
-    });
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+    const formattedMonth = month < 10 ? `0${month}` : month;
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const minDate = `${year}-${formattedMonth}-${formattedDay}`;
+
+    this.setState(
+      {
+        OpenTicketBookingModel: true,
+        FlightID: data.flightID,
+        FlightName: data.flightName,
+        To: data.to,
+        Destination: data.destination,
+        FlightPrice: data.price,
+        FlightPriceOperational: data.price,
+        Company: data.company,
+        Time: data.time,
+        FlightDescription: data.description,
+        Date: minDate, // Set initial date to today's date
+        AvailableSeats: 0,
+      },
+      () => {
+        this.AvailableSeat(minDate); // Call AvailableSeat with the initial date
+      }
+    );
   };
 
   handleOpenGetwayModel = () => {
@@ -426,8 +448,7 @@ export default class CustomerHome extends Component {
               style={{ margin: "0 5px" }}
               onClick={() => {
                 this.SearchAndFilterFlights();
-              }}
-            >
+              }}>
               Search
             </Button>
             <Button
@@ -435,8 +456,7 @@ export default class CustomerHome extends Component {
               style={{ color: "white" }}
               onClick={() => {
                 this.GetFlightDetails(this.state.PageNumber);
-              }}
-            >
+              }}>
               clear
             </Button>
           </div>
@@ -448,8 +468,7 @@ export default class CustomerHome extends Component {
                 style={{
                   width: "100%",
                   backgroundColor: "#202020",
-                }}
-              >
+                }}>
                 <TableRow style={{ flex: 10 }}>
                   <TableCell align="left" style={{ flex: 2, color: "white" }}>
                     Flight Name
@@ -480,8 +499,7 @@ export default class CustomerHome extends Component {
                       style={{ flex: 10, margin: 8, boxSizing: "border-box" }}
                       onClick={() => {
                         this.handleOpenBookingModel(row);
-                      }}
-                    >
+                      }}>
                       <TableCell align="left" scope="row" style={{ flex: 2 }}>
                         {row.flightName}
                       </TableCell>
@@ -525,8 +543,7 @@ export default class CustomerHome extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-Ticket"
-        >
+          className="Model-Create-Ticket">
           <Fade in={this.state.OpenTicketBookingModel}>
             <div className="Model-Create-Book-Main">
               <div className="Model-Create-Ticket-Header">
@@ -589,8 +606,7 @@ export default class CustomerHome extends Component {
                       // alignItems: "center",
                     }}
                     value={state.SeatClass}
-                    onChange={this.handleChange}
-                  >
+                    onChange={this.handleChange}>
                     <FormControlLabel
                       value="economy"
                       control={<Radio />}
@@ -628,8 +644,7 @@ export default class CustomerHome extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.handleClose();
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 <Button
@@ -645,8 +660,7 @@ export default class CustomerHome extends Component {
                   }}
                   onClick={() => {
                     this.handleOpenGetwayModel();
-                  }}
-                >
+                  }}>
                   Payment
                 </Button>
               </div>
@@ -662,14 +676,12 @@ export default class CustomerHome extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-Ticket"
-        >
+          className="Model-Create-Ticket">
           <Fade in={this.state.OpenGetwayModel}>
             <div className="Model-Open-Getway-Main">
               <div
                 className="Model-Create-Ticket-Header"
-                style={{ height: 100 }}
-              >
+                style={{ height: 100 }}>
                 <div className="Model-Open-Getway-Header-Text">
                   Payment Detail
                 </div>
@@ -717,8 +729,7 @@ export default class CustomerHome extends Component {
                 </div>
                 <div
                   style={{ display: "flex" }}
-                  className="Model-Create-Ticket-Body-Row"
-                >
+                  className="Model-Create-Ticket-Body-Row">
                   Payment Mode :
                   <RadioGroup
                     name="PaymentMode"
@@ -730,8 +741,7 @@ export default class CustomerHome extends Component {
                       // alignItems: "center",
                     }}
                     value={state.PaymentMode}
-                    onChange={this.handleChange}
-                  >
+                    onChange={this.handleChange}>
                     <FormControlLabel
                       value="card"
                       control={<Radio />}
@@ -776,8 +786,7 @@ export default class CustomerHome extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.handleClose1();
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 <Button
@@ -791,8 +800,7 @@ export default class CustomerHome extends Component {
                   }}
                   onClick={() => {
                     this.handleCoonfirmBook();
-                  }}
-                >
+                  }}>
                   Book
                 </Button>
               </div>
@@ -805,8 +813,7 @@ export default class CustomerHome extends Component {
           open={this.state.OpenLoader}
           onClick={() => {
             this.setState({ OpenLoader: false });
-          }}
-        >
+          }}>
           <CircularProgress color="inherit" />
         </Backdrop>
         <Snackbar
@@ -823,16 +830,14 @@ export default class CustomerHome extends Component {
               <Button
                 color="secondary"
                 size="small"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 UNDO
               </Button>
               <IconButton
                 size="small"
                 aria-label="close"
                 color="inherit"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>

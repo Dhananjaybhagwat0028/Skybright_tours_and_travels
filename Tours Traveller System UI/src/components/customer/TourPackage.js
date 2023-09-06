@@ -217,43 +217,36 @@ export default class TourPackage extends Component {
                 style={{
                   width: "100%",
                   backgroundColor: "#202020",
-                }}
-              >
+                }}>
                 <TableRow style={{ display: "flex" }}>
                   <TableCell
                     style={{ fontSize: 16, flex: 2, color: "white" }}
-                    align="left"
-                  >
+                    align="left">
                     Id
                   </TableCell>
                   <TableCell
                     style={{ fontSize: 16, flex: 2, color: "white" }}
-                    align="left"
-                  >
+                    align="left">
                     Package Name
                   </TableCell>
                   <TableCell
                     style={{ fontSize: 16, flex: 2, color: "white" }}
-                    align="left"
-                  >
+                    align="left">
                     Source
                   </TableCell>
                   <TableCell
                     style={{ fontSize: 16, flex: 2, color: "white" }}
-                    align="left"
-                  >
+                    align="left">
                     Destination
                   </TableCell>
                   <TableCell
                     style={{ fontSize: 16, flex: 2, color: "white" }}
-                    align="left"
-                  >
+                    align="left">
                     Package Price
                   </TableCell>
                   <TableCell
                     style={{ fontSize: 16, flex: 2 }}
-                    align="left"
-                  ></TableCell>
+                    align="left"></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -264,8 +257,7 @@ export default class TourPackage extends Component {
                           align="left"
                           component="th"
                           scope="row"
-                          style={{ flex: 2 }}
-                        >
+                          style={{ flex: 2 }}>
                           {row.packageID}
                         </TableCell>
                         <TableCell align="left" style={{ flex: 2 }}>
@@ -287,8 +279,7 @@ export default class TourPackage extends Component {
                             size="medium"
                             onClick={() => {
                               self.ViewPackageList(row);
-                            }}
-                          >
+                            }}>
                             <VisibilityIcon size="medium" />
                           </IconButton>
                           <div
@@ -303,8 +294,7 @@ export default class TourPackage extends Component {
                             }}
                             onClick={() => {
                               this.handleAddPackage(row);
-                            }}
-                          >
+                            }}>
                             Buy Package
                           </div>
                         </TableCell>
@@ -327,8 +317,7 @@ export default class TourPackage extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-TourPackage"
-        >
+          className="Model-Create-TourPackage">
           <Fade in={this.state.OpenViewPackageList}>
             <div className="Model-Create-TourPackage-Main">
               <div className="Model-Create-TourPackage-Header">
@@ -357,31 +346,26 @@ export default class TourPackage extends Component {
                         style={{
                           width: "100%",
                           backgroundColor: "#202020",
-                        }}
-                      >
+                        }}>
                         <TableRow style={{ flex: 10 }}>
                           <TableCell
                             align="left"
-                            style={{ flex: 2, color: "white" }}
-                          >
+                            style={{ flex: 2, color: "white" }}>
                             Flight Name
                           </TableCell>
                           <TableCell
                             align="left"
-                            style={{ flex: 2, color: "white" }}
-                          >
+                            style={{ flex: 2, color: "white" }}>
                             Company
                           </TableCell>
                           <TableCell
                             align="left"
-                            style={{ flex: 2, color: "white" }}
-                          >
+                            style={{ flex: 2, color: "white" }}>
                             Source
                           </TableCell>
                           <TableCell
                             align="left"
-                            style={{ flex: 2, color: "white" }}
-                          >
+                            style={{ flex: 2, color: "white" }}>
                             Destination
                           </TableCell>
                           {/* <TableCell
@@ -398,15 +382,13 @@ export default class TourPackage extends Component {
                               <TableCell
                                 align="left"
                                 scope="row"
-                                style={{ flex: 2 }}
-                              >
+                                style={{ flex: 2 }}>
                                 {row.flightName}
                               </TableCell>
                               <TableCell
                                 align="left"
                                 scope="row"
-                                style={{ flex: 2 }}
-                              >
+                                style={{ flex: 2 }}>
                                 {row.company}
                               </TableCell>
                               <TableCell align="left" style={{ flex: 2 }}>
@@ -445,8 +427,7 @@ export default class TourPackage extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.setState({ OpenViewPackageList: false });
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 {/* <Button
@@ -479,8 +460,7 @@ export default class TourPackage extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-TourPackage"
-        >
+          className="Model-Create-TourPackage">
           <Fade in={this.state.OpenAddPackageList}>
             <div className="Model-Create-TourPackage-Main">
               <div className="Model-Create-TourPackage-Header">
@@ -491,8 +471,7 @@ export default class TourPackage extends Component {
               <div style={{ width: "100%", height: "100%" }} className="d-flex">
                 <div
                   className="Model-Create-TourPackage-Body border"
-                  style={{ width: "50%", height: "100%" }}
-                >
+                  style={{ width: "50%", height: "100%" }}>
                   <div>
                     <TextField
                       disabled
@@ -513,31 +492,26 @@ export default class TourPackage extends Component {
                           style={{
                             width: "100%",
                             backgroundColor: "#202020",
-                          }}
-                        >
+                          }}>
                           <TableRow style={{ flex: 10 }}>
                             <TableCell
                               align="left"
-                              style={{ flex: 2, color: "white" }}
-                            >
+                              style={{ flex: 2, color: "white" }}>
                               Flight Name
                             </TableCell>
                             <TableCell
                               align="left"
-                              style={{ flex: 2, color: "white" }}
-                            >
+                              style={{ flex: 2, color: "white" }}>
                               Company
                             </TableCell>
                             <TableCell
                               align="left"
-                              style={{ flex: 2, color: "white" }}
-                            >
+                              style={{ flex: 2, color: "white" }}>
                               Source
                             </TableCell>
                             <TableCell
                               align="left"
-                              style={{ flex: 2, color: "white" }}
-                            >
+                              style={{ flex: 2, color: "white" }}>
                               Destination
                             </TableCell>
                             {/* <TableCell
@@ -554,15 +528,13 @@ export default class TourPackage extends Component {
                                 <TableCell
                                   align="left"
                                   scope="row"
-                                  style={{ flex: 2 }}
-                                >
+                                  style={{ flex: 2 }}>
                                   {row.flightName}
                                 </TableCell>
                                 <TableCell
                                   align="left"
                                   scope="row"
-                                  style={{ flex: 2 }}
-                                >
+                                  style={{ flex: 2 }}>
                                   {row.company}
                                 </TableCell>
                                 <TableCell align="left" style={{ flex: 2 }}>
@@ -591,8 +563,7 @@ export default class TourPackage extends Component {
                 <div style={{ width: "50%", height: "100%", padding: "50px" }}>
                   <div
                     style={{ display: "flex" }}
-                    className="Model-Create-Ticket-Body-Row"
-                  >
+                    className="Model-Create-Ticket-Body-Row">
                     Payment Mode :
                     <RadioGroup
                       name="PaymentMode"
@@ -604,8 +575,7 @@ export default class TourPackage extends Component {
                         // alignItems: "center",
                       }}
                       value={state.PaymentMode}
-                      onChange={this.handleChange}
-                    >
+                      onChange={this.handleChange}>
                       <FormControlLabel
                         value="card"
                         control={<Radio />}
@@ -634,8 +604,7 @@ export default class TourPackage extends Component {
                             margin: "10px 0 10px 15px",
                             fontWeight: 500,
                           }}
-                          className="font-Styles"
-                        >
+                          className="font-Styles">
                           Enter Number
                         </div>
                         <div
@@ -643,8 +612,7 @@ export default class TourPackage extends Component {
                             width: "70%",
                             display: "flex",
                             justifyContent: "flex-start",
-                          }}
-                        >
+                          }}>
                           <TextField
                             variant="outlined"
                             size="small"
@@ -676,8 +644,7 @@ export default class TourPackage extends Component {
                         margin: "10px 0 10px 15px",
                         fontWeight: 500,
                       }}
-                      className="font-Styles"
-                    >
+                      className="font-Styles">
                       Flight Date
                     </div>
                     <div
@@ -685,12 +652,14 @@ export default class TourPackage extends Component {
                         width: "70%",
                         display: "flex",
                         justifyContent: "flex-start",
-                      }}
-                    >
+                      }}>
                       <TextField
                         variant="outlined"
                         size="small"
                         type="date"
+                        inputProps={{
+                          min: new Date().toISOString().split("T")[0],
+                        }}
                         name="FlightDate"
                         style={{ margin: "5px 0 20px 0" }}
                         error={state.FlightDateFlag}
@@ -701,8 +670,7 @@ export default class TourPackage extends Component {
                   </div>
                   <div
                     style={{ display: "flex" }}
-                    className="Model-Create-Ticket-Body-Row"
-                  >
+                    className="Model-Create-Ticket-Body-Row">
                     Seat Class :
                     <RadioGroup
                       name="SeatClass"
@@ -712,8 +680,7 @@ export default class TourPackage extends Component {
                         margin: "10px 0 0 65px",
                       }}
                       value={state.SeatClass}
-                      onChange={this.handleChange}
-                    >
+                      onChange={this.handleChange}>
                       <FormControlLabel
                         value="economy"
                         control={<Radio />}
@@ -734,8 +701,7 @@ export default class TourPackage extends Component {
                       margin: "20px 0 10px 15px",
                       fontWeight: 500,
                     }}
-                    className="font-Styles"
-                  >
+                    className="font-Styles">
                     Source Location : {this.state.Source}
                   </div>
                   <div
@@ -746,8 +712,7 @@ export default class TourPackage extends Component {
                       margin: "20px 0 10px 15px",
                       fontWeight: 500,
                     }}
-                    className="font-Styles"
-                  >
+                    className="font-Styles">
                     Destination Location : {this.state.Destination}
                   </div>
                   <div
@@ -758,8 +723,7 @@ export default class TourPackage extends Component {
                       margin: "20px 0 10px 15px",
                       fontWeight: 500,
                     }}
-                    className="font-Styles"
-                  >
+                    className="font-Styles">
                     TotalPackagePrice : {this.state.FlightTourPriceOperational}
                     &nbsp;&#8377;
                   </div>
@@ -778,8 +742,7 @@ export default class TourPackage extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.setState({ OpenAddPackageList: false });
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 <Button
@@ -793,8 +756,7 @@ export default class TourPackage extends Component {
                   }}
                   onClick={() => {
                     this.handleSubmitAddPackage();
-                  }}
-                >
+                  }}>
                   Buy Package
                 </Button>
               </div>
@@ -807,8 +769,7 @@ export default class TourPackage extends Component {
           open={this.state.OpenLoader}
           onClick={() => {
             this.setState({ OpenLoader: false });
-          }}
-        >
+          }}>
           <CircularProgress color="inherit" />
         </Backdrop>
         <Snackbar
@@ -825,16 +786,14 @@ export default class TourPackage extends Component {
               <Button
                 color="secondary"
                 size="small"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 UNDO
               </Button>
               <IconButton
                 size="small"
                 aria-label="close"
                 color="inherit"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>

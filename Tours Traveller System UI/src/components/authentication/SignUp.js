@@ -103,28 +103,38 @@ export default class SignUp extends Component {
     });
 
     if (operation === "signup") {
-      if (state.FirstName === "") {
+      const nameRegex = /^[A-Za-z]+$/;
+
+      if (!nameRegex.test(state.FirstName)) {
         this.setState({ FirstNameFlag: true });
         Value = false;
       }
 
-      if (state.LastName === "") {
+      if (!nameRegex.test(state.LastName)) {
         this.setState({ LastNameFlag: true });
         Value = false;
       }
 
-      if (state.SignUpEmail === "") {
+      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+      if (!emailRegex.test(state.SignUpEmail)) {
         this.setState({ SignUpEmailFlag: true });
         Value = false;
       }
 
-      if (state.SignUpPassword === "") {
+      //const passwordRegex = /^(?=.*[A-Za-z0-9])(?=.*\d)[A-Za-z\d]{8,}$/;
+      const passwordRegex =
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+      if (!passwordRegex.test(state.SignUpPassword)) {
         this.setState({ SignUpPasswordFlag: true });
         Value = false;
       }
 
-      if (state.SignUpConfirmPassword === "") {
-        this.setState({ SignUpConfirmPasswordFlag: true });
+      if (state.SignUpConfirmPassword !== state.SignUpPassword) {
+        this.setState({
+          SignUpConfirmPasswordFlag: true,
+        });
         Value = false;
       }
 
@@ -305,9 +315,8 @@ export default class SignUp extends Component {
                     display: "flex",
                     padding: "5px 0 0 200px",
                     boxSizing: "border-box",
-                  }}
-                >
-                  Tours & Travels &nbsp;
+                  }}>
+                  Sky-Bright Tours & Travels &nbsp;
                   <div style={{ margin: "3px 0 0 0" }}>
                     <FlightTakeoffIcon />
                   </div>
@@ -351,8 +360,7 @@ export default class SignUp extends Component {
                   }}
                   onClick={() => {
                     this.handleSignInSubmit();
-                  }}
-                >
+                  }}>
                   Sign In
                 </Button>
               </Toolbar>
@@ -378,6 +386,11 @@ export default class SignUp extends Component {
                   <div className="Sub-Form1">
                     <TextField
                       error={state.FirstNameFlag}
+                      helperText={
+                        state.LastNameFlag
+                          ? "Please enter a valid first name"
+                          : ""
+                      }
                       className="TextField"
                       placeholder="First Name"
                       variant="outlined"
@@ -389,6 +402,11 @@ export default class SignUp extends Component {
                     />
                     <TextField
                       error={state.LastNameFlag}
+                      helperText={
+                        state.LastNameFlag
+                          ? "Please enter a valid last name"
+                          : ""
+                      }
                       className="TextField"
                       placeholder="Last Name"
                       variant="outlined"
@@ -401,6 +419,11 @@ export default class SignUp extends Component {
                   <div className="Sub-Form2">
                     <TextField
                       error={state.SignUpEmailFlag}
+                      helperText={
+                        state.LastNameFlag
+                          ? "Please enter a valid email address"
+                          : ""
+                      }
                       className="TextField"
                       placeholder="Your Email"
                       variant="outlined"
@@ -412,6 +435,11 @@ export default class SignUp extends Component {
                     />
                     <TextField
                       error={state.SignUpPasswordFlag}
+                      helperText={
+                        state.LastNameFlag
+                          ? "Password should be alphanumeric "
+                          : "it should be min 8 character"
+                      }
                       className="TextField"
                       placeholder="Password"
                       variant="outlined"
@@ -424,6 +452,9 @@ export default class SignUp extends Component {
                     />
                     <TextField
                       error={state.SignUpConfirmPasswordFlag}
+                      helperText={
+                        state.LastNameFlag ? "confirm password is wrong" : ""
+                      }
                       className="TextField"
                       placeholder="Confirm Password"
                       variant="outlined"
@@ -452,7 +483,7 @@ export default class SignUp extends Component {
                       <TextField
                         error={state.MasterPasswordFlag}
                         className="TextField"
-                        placeholder="Master Password"
+                        placeholder="Host key"
                         variant="outlined"
                         size="small"
                         name="MasterPassword"
@@ -472,8 +503,7 @@ export default class SignUp extends Component {
                         // alignItems: "center",
                       }}
                       value={state.Role}
-                      onChange={this.handleChange}
-                    >
+                      onChange={this.handleChange}>
                       <FormControlLabel
                         value="customer"
                         control={<Radio />}
@@ -500,8 +530,7 @@ export default class SignUp extends Component {
                       }}
                       onClick={() => {
                         this.handleSignUpSubmit();
-                      }}
-                    >
+                      }}>
                       Sign Up
                     </Button>
                     {/* <Button
@@ -524,8 +553,7 @@ export default class SignUp extends Component {
         </div>
         <Backdrop
           style={{ zIndex: "1", color: "#fff" }}
-          open={this.state.OpenLoader}
-        >
+          open={this.state.OpenLoader}>
           <CircularProgress color="inherit" />
         </Backdrop>
         <Snackbar
@@ -542,16 +570,14 @@ export default class SignUp extends Component {
               <Button
                 color="secondary"
                 size="small"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 UNDO
               </Button>
               <IconButton
                 size="small"
                 aria-label="close"
                 color="inherit"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>

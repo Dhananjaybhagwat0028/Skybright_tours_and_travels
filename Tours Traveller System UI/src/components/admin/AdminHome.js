@@ -234,30 +234,7 @@ export default class AdminHome extends Component {
                       <TableCell align="left" style={{ flex: 1 }}>
                         {row.time}
                       </TableCell>
-                      {/* <TableCell
-                        align="center"
-                        style={{ flex: 1 }}
-                      >
-                        <IconButton
-                          variant="outlined"
-                          color="primary"
-                          size="medium"
-                          onClick={() => {
-                            self.handleCopyData(row);
-                          }}
-                        >
-                          <EditIcon size="medium" />
-                        </IconButton>
-                        <IconButton
-                          variant="outlined"
-                          style={{ color: "black" }}
-                          onClick={() => {
-                            self.handleDeleteProduct(row.productID);
-                          }}
-                        >
-                          <DeleteIcon size="medium" />
-                        </IconButton>
-                      </TableCell> */}
+                     
                     </TableRow>
                   ))}
               </TableBody>

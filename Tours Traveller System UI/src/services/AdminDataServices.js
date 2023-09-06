@@ -90,7 +90,7 @@ function EmailService(reqbody) {
     },
     body: JSON.stringify(reqbody),
   };
-  return fetch(`https://localhost:7121/api/Email/EmailService`, requestOptions)
+  return fetch(`https://localhost:44307/api/Email/EmailService`, requestOptions)
     .then((res) => res.json())
     .then((result) => {
       return result;

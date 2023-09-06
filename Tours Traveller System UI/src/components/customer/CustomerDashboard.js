@@ -307,14 +307,6 @@ export default class CustomerDashboard extends Component {
       Value = true;
     }
 
-    // if (
-    //   state.Image ===
-    //   "https://res.cloudinary.com/dzavgoc9w/image/upload/v1663592085/Images/Default_j3wvy8.png"
-    // ) {
-    //   this.setState({ ProductImageFlag: true });
-    //   Value = true;
-    // }
-
     return Value;
   };
 
@@ -518,12 +510,11 @@ export default class CustomerDashboard extends Component {
     this.setState({ ProjectStatus: event.target.value });
   };
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState(
-      { [name]: value },
-      console.log("name : ", name, "Value : ", value)
-    );
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value }, () => {
+      // Call your validation functions here if needed
+    });
   };
 
   handleCapture = (event) => {
@@ -618,14 +609,12 @@ export default class CustomerDashboard extends Component {
                   edge="start"
                   className=""
                   color="inherit"
-                  onClick={this.handleMenuButton}
-                >
+                  onClick={this.handleMenuButton}>
                   <MenuIcon />
                 </IconButton>
                 <Typography
                   variant="h6"
-                  style={{ flex: 4, margin: "0 0 0 100px" }}
-                >
+                  style={{ flex: 4, margin: "0 0 0 100px" }}>
                   Customer DashBoard
                 </Typography>
                 <Typography
@@ -635,9 +624,8 @@ export default class CustomerDashboard extends Component {
                     display: "flex",
                     padding: "5px 0 0 190px",
                     boxSizing: "border-box",
-                  }}
-                >
-                  Tours & Travels &nbsp;
+                  }}>
+                  Sky-Bright Tours & Travels &nbsp;
                   <div style={{ margin: "3px 0 0 0" }}>
                     <FlightTakeoffIcon />
                   </div>
@@ -652,8 +640,7 @@ export default class CustomerDashboard extends Component {
                   }}
                   onClick={() => {
                     this.handleOpenFeedbackModel();
-                  }}
-                >
+                  }}>
                   Feedback
                 </Button>
 
@@ -663,8 +650,7 @@ export default class CustomerDashboard extends Component {
                       <IconButton
                         edge="start"
                         color="inherit"
-                        {...bindToggle(popupState)}
-                      >
+                        {...bindToggle(popupState)}>
                         {state.Image === Default ? (
                           <AccountCircleIcon fontSize="large" />
                         ) : (
@@ -679,8 +665,7 @@ export default class CustomerDashboard extends Component {
                       <Popper
                         {...bindPopper(popupState)}
                         transition
-                        style={{ zIndex: 1234 }}
-                      >
+                        style={{ zIndex: 1234 }}>
                         {({ TransitionProps }) => (
                           <Fade {...TransitionProps} timeout={350}>
                             <Paper
@@ -692,8 +677,7 @@ export default class CustomerDashboard extends Component {
                                 fontFamily: "Roboto",
                                 backgroundColor: "#202020",
                                 color: "white",
-                              }}
-                            >
+                              }}>
                               <IconButton edge="start" color="inherit">
                                 <AccountBoxIcon fontSize="large" />
                               </IconButton>
@@ -715,8 +699,7 @@ export default class CustomerDashboard extends Component {
                                 }}
                                 onClick={() => {
                                   this.SignOut();
-                                }}
-                              >
+                                }}>
                                 <IconButton edge="start" color="inherit">
                                   <ExitToAppIcon fontSize="small" />
                                 </IconButton>
@@ -737,8 +720,7 @@ export default class CustomerDashboard extends Component {
               <div className={state.MenuOpen ? "SubBody11" : "SubBody12"}>
                 <div
                   className={state.OpenHome ? "NavButton1" : "NavButton2"}
-                  onClick={this.handleOpenHome}
-                >
+                  onClick={this.handleOpenHome}>
                   <IconButton edge="start" className="NavBtn" color="inherit">
                     <VisibilityIcon />
                   </IconButton>
@@ -751,20 +733,18 @@ export default class CustomerDashboard extends Component {
                   className={
                     state.OpenTourPackages ? "NavButton1" : "NavButton2"
                   }
-                  onClick={this.handleOpenTourPackages}
-                >
+                  onClick={this.handleOpenTourPackages}>
                   <IconButton edge="start" className="NavBtn" color="inherit">
                     <LocalMallIcon />
                   </IconButton>
                   {this.state.MenuOpen ? (
-                    <div className="NavButtonText">Tour Packages</div>
+                    <div className="NavButtonText"> Tour Packages</div>
                   ) : null}
                 </div>
 
                 <div
                   className={state.OpenMyPackages ? "NavButton1" : "NavButton2"}
-                  onClick={this.handleOpenMyPackages}
-                >
+                  onClick={this.handleOpenMyPackages}>
                   <IconButton edge="start" className="NavBtn" color="inherit">
                     <BookmarkIcon />
                   </IconButton>
@@ -775,8 +755,7 @@ export default class CustomerDashboard extends Component {
 
                 <div
                   className={state.OpenMyTour ? "NavButton1" : "NavButton2"}
-                  onClick={this.handleOpenMyTour}
-                >
+                  onClick={this.handleOpenMyTour}>
                   <IconButton edge="start" className="NavBtn" color="inherit">
                     <BookmarkIcon />
                   </IconButton>
@@ -790,15 +769,13 @@ export default class CustomerDashboard extends Component {
                   style={{
                     height: "100%",
                     width: "100%",
-                  }}
-                >
+                  }}>
                   <div
                     style={{
                       // height: state.OpenHome ? "100%" : "92%",
                       height: "100%",
                       width: "100%",
-                    }}
-                  >
+                    }}>
                     {state.OpenHome
                       ? this.handleOpenHomeBody()
                       : state.OpenTourPackages
@@ -810,387 +787,6 @@ export default class CustomerDashboard extends Component {
                       : null}
                   </div>
                 </div>
-
-                <Modal
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                  open={this.state.open}
-                  onClose={this.handleClose}
-                  closeAfterTransition
-                  BackdropComponent={Backdrop}
-                  BackdropProps={{
-                    timeout: 500,
-                  }}
-                >
-                  <Fade in={this.state.open}>
-                    <div
-                      style={{
-                        backgroundColor: "white",
-                        boxShadow: "5",
-                        padding: "2px 4px 3px",
-                        width: "1000px",
-                        height: "630px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontFamily: "Roboto",
-                          fontWeight: 500,
-                          fontSize: 20,
-                          color: "red",
-                          margin: "0 0 20px 0",
-                        }}
-                      >
-                        Application ID : {state.ApplicationID}
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "row" }}>
-                        <div>
-                          <div className="Input-Field">
-                            <div className="Text">Job ID</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.JobID}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Job Name</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.JobName}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Name</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Name}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Contact</div>
-
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Contact}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">EmailID</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.EmailID}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Address</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Address}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Work Experience</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.WorkExperience}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Date Of Birth</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.DateOfBirth}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Passing Year</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.PassingYear}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">PinCode</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Pincode}
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          {/* <div
-                              className="Input-Field"
-                              style={{ margin: "46px 0" }}
-                            ></div> */}
-                          <div className="Input-Field">
-                            <div className="Text">10th Percentage</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Percentage10}%
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">12th Percentage</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Percentage12}%
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Grad. Aggregation</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.GradAggregation}%
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">College Name</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.CollegeName}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Degree</div>
-
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Degree}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Current Status</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.CurrentStatus}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Skill</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Skill}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Age</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Age}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Gender</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.Gender}
-                            </div>
-                          </div>
-                          <div className="Input-Field">
-                            <div className="Text">Stream</div>
-                            <div
-                              style={{
-                                color: "blue",
-                                fontFamily: "Roboto",
-                                fontWeight: "500",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              {state.StreamName}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="Input-Field"
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-around",
-                        }}
-                      >
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          component="span"
-                          style={{ margin: "10px 10px 0 0" }}
-                          onClick={() => {
-                            this.handleDeleteApplication(state.ApplicationID);
-                          }}
-                        >
-                          Reject Application
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          style={{ margin: "10px 0 0 10px" }}
-                          onClick={this.handleClose1}
-                        >
-                          Cancel
-                        </Button>
-                      </div>
-                    </div>
-                  </Fade>
-                </Modal>
               </div>
             </div>
           </div>
@@ -1204,8 +800,7 @@ export default class CustomerDashboard extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-Ticket"
-        >
+          className="Model-Create-Ticket">
           <Fade in={this.state.OpenAddressModel}>
             <div className="Model-Create-Ticket-Main">
               <div className="Model-Create-Ticket-Header">
@@ -1214,43 +809,6 @@ export default class CustomerDashboard extends Component {
                 </div>
               </div>
               <div className="Model-Create-Ticket-Body">
-                {/* <div
-                  className="Admin-Packages-Body-Box1-Sub1-Image"
-                  htmlFor="contained-button-file"
-                  style={{
-                    border: state.ProductImageFlag
-                      ? "0.5px solid red"
-                      : "0.5px solid white",
-                  }}
-                >
-                  <img
-                    src={state.Image}
-                    alt="Product-Image"
-                    // className="Admin-Packages-Body-Box1-Sub1-Image"
-                    style={{ height: "80%", width: "80%" }}
-                  />
-                  <input
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    id="contained-button-file"
-                    multiple
-                    type="file"
-                    onChange={this.handleCapture}
-                  />
-                  <label
-                    htmlFor="contained-button-file"
-                    // style={{ margin: "10px 0 0 0" }}
-                  >
-                    <IconButton
-                      variant="contained"
-                      color="primary"
-                      component="span"
-                      size="small"
-                    >
-                      <PhotoCamera />
-                    </IconButton>
-                  </label>
-                </div> */}
                 <div>
                   <TextField
                     label="User ID"
@@ -1309,28 +867,53 @@ export default class CustomerDashboard extends Component {
                     style={{ margin: "0 20px 5px 0" }}
                     name="ZipCode"
                     error={state.ZipCodeFlag}
+                    helperText={
+                      state.ZipCodeFlag
+                        ? "Please enter a valid 6-digit zip code"
+                        : "Enter a 6-digit zip code"
+                    }
                     value={state.ZipCode}
                     onChange={this.handleChange}
+                    inputProps={{
+                      maxLength: 6, // Restrict the input length to 6 characters
+                    }}
                   />
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <TextField
                     label="Home Phone"
-                    type="number"
+                    type="tel"
                     style={{ margin: "0 20px 5px 0" }}
                     name="HomePhone"
                     error={state.HomePhoneFlag}
+                    helperText={
+                      state.HomePhoneFlag
+                        ? "Please enter a valid 10-digit phone number"
+                        : "Enter a 10-digit phone number"
+                    }
                     value={state.HomePhone}
                     onChange={this.handleChange}
+                    inputProps={{
+                      pattern: "[0-9]{10}", // Validate for 10 digits
+                    }}
                   />
+
                   <TextField
                     label="Personal Number"
-                    type="number"
+                    type="tel"
                     style={{ margin: "0 20px 5px 0" }}
                     name="PersonalNumber"
                     error={state.PersonalNumberFlag}
+                    helperText={
+                      state.PersonalNumberFlag
+                        ? "Please enter a valid 10-digit phone number"
+                        : "Enter a 10-digit phone number"
+                    }
                     value={state.PersonalNumber}
                     onChange={this.handleChange}
+                    inputProps={{
+                      pattern: "[0-9]{10}", // Validate for 10 digits
+                    }}
                   />
                   <TextField
                     label="Email Address"
@@ -1347,16 +930,24 @@ export default class CustomerDashboard extends Component {
                     display: "flex",
                     alignItems: "center",
                     margin: "20px 0 0 0",
-                  }}
-                >
+                  }}>
                   DOB :
                   <TextField
                     type="date"
                     style={{ margin: "0 20px 5px 10px" }}
                     name="DateOfBirth"
                     error={state.DateOfBirthFlag}
+                    helperText={
+                      state.DateOfBirthFlag
+                        ? "Please select a valid date of birth"
+                        : "Select your date of birth"
+                    }
                     value={state.DateOfBirth}
                     onChange={this.handleChange}
+                    inputProps={{
+                      min: "1900-01-01", // Set a minimum date
+                      max: "2023-08-31",
+                    }}
                   />
                   Gender :
                   <RadioGroup
@@ -1369,8 +960,7 @@ export default class CustomerDashboard extends Component {
                       // alignItems: "center",
                     }}
                     value={state.Gender}
-                    onChange={this.handleChange}
-                  >
+                    onChange={this.handleChange}>
                     <FormControlLabel
                       value="male"
                       control={<Radio />}
@@ -1405,8 +995,7 @@ export default class CustomerDashboard extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.handleClose();
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 <Button
@@ -1419,9 +1008,33 @@ export default class CustomerDashboard extends Component {
                     color: "white",
                   }}
                   onClick={() => {
+                    // Perform your validation checks here before saving
+                    if (!state.ZipCode || state.ZipCode.length !== 6) {
+                      // Display an error message or set a flag
+                      return;
+                    }
+
+                    if (
+                      !state.HomePhone ||
+                      !state.HomePhone.match(/^\d{10}$/)
+                    ) {
+                      // Display an error message or set a flag
+                      return;
+                    }
+
+                    if (
+                      !state.PersonalNumber ||
+                      !state.PersonalNumber.match(/^\d{10}$/)
+                    ) {
+                      // Display an error message or set a flag
+                      return;
+                    }
+
+                    // Your other validation checks
+
+                    // If all validations pass, call your save function
                     this.handleInfoSubmit();
-                  }}
-                >
+                  }}>
                   Save
                 </Button>
               </div>
@@ -1437,8 +1050,7 @@ export default class CustomerDashboard extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-Feedback"
-        >
+          className="Model-Create-Feedback">
           <Fade in={this.state.OpenFeedback}>
             <div className="Model-Create-Feedback-Main">
               <div className="Model-Create-Feedback-Header">
@@ -1467,8 +1079,7 @@ export default class CustomerDashboard extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.handleClose();
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 <Button
@@ -1476,8 +1087,7 @@ export default class CustomerDashboard extends Component {
                   color="primary"
                   onClick={() => {
                     this.InsertFeedback();
-                  }}
-                >
+                  }}>
                   Send
                 </Button>
               </div>
@@ -1493,8 +1103,7 @@ export default class CustomerDashboard extends Component {
           BackdropProps={{
             timeout: 500,
           }}
-          className="Model-Create-Feedback"
-        >
+          className="Model-Create-Feedback">
           <Fade in={this.state.OpenFeedback}>
             <div className="Model-Create-Feedbacks-Main">
               <div className="Model-Create-Feedback-Header">
@@ -1516,23 +1125,6 @@ export default class CustomerDashboard extends Component {
                   value={state.Feedback}
                   onChange={this.handleChange}
                 />
-                {/* <Box
-                  component="fieldset"
-                  mb={3}
-                  borderColor="transparent"
-                  className="mt-3"
-                >
-                  <Typography component="legend">Feedback</Typography>
-                  <Rating
-                    name="customized-icons"
-                    defaultValue={2}
-                    getLabelText={(value) => customIcons[value].label}
-                    IconContainerComponent={IconContainer}
-                    onChange={(e) => {
-                      this.handleChangeRating(e);
-                    }}
-                  />
-                </Box> */}
               </div>
               <div className="Model-Create-Feedback-Footer">
                 <Button
@@ -1540,8 +1132,7 @@ export default class CustomerDashboard extends Component {
                   style={{ margin: "10px" }}
                   onClick={() => {
                     this.handleClose();
-                  }}
-                >
+                  }}>
                   Cancel
                 </Button>
                 <Button
@@ -1550,8 +1141,7 @@ export default class CustomerDashboard extends Component {
                   style={{ background: "#ff0000" }}
                   onClick={() => {
                     this.InsertFeedback();
-                  }}
-                >
+                  }}>
                   Send
                 </Button>
               </div>
@@ -1564,8 +1154,7 @@ export default class CustomerDashboard extends Component {
           open={this.state.OpenLoader}
           onClick={() => {
             this.setState({ OpenLoader: false });
-          }}
-        >
+          }}>
           <CircularProgress color="inherit" />
         </Backdrop>
         <Snackbar
@@ -1582,16 +1171,14 @@ export default class CustomerDashboard extends Component {
               <Button
                 color="secondary"
                 size="small"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 UNDO
               </Button>
               <IconButton
                 size="small"
                 aria-label="close"
                 color="inherit"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>

@@ -159,8 +159,7 @@ export default class ForgetPassword extends Component {
                 </IconButton>
                 <Typography
                   variant="h6"
-                  style={{ flex: 1, margin: "0 0 0 100px" }}
-                >
+                  style={{ flex: 1, margin: "0 0 0 100px" }}>
                   Forget Password
                 </Typography>
                 <Typography
@@ -170,9 +169,8 @@ export default class ForgetPassword extends Component {
                     display: "flex",
                     padding: "5px 0 0 190px",
                     boxSizing: "border-box",
-                  }}
-                >
-                  Tours & Travels &nbsp;
+                  }}>
+                  Sky-Bright Tours & Travels &nbsp;
                   <div style={{ margin: "3px 0 0 0" }}>
                     <FlightTakeoffIcon />
                   </div>
@@ -224,8 +222,7 @@ export default class ForgetPassword extends Component {
                     <div className="mb-3">
                       <label
                         htmlFor="exampleInputPassword1"
-                        className="form-label"
-                      >
+                        className="form-label">
                         Password
                       </label>
                       <input
@@ -241,8 +238,7 @@ export default class ForgetPassword extends Component {
                     <div className="mb-3">
                       <label
                         htmlFor="exampleInputPassword1"
-                        className="form-label"
-                      >
+                        className="form-label">
                         Confirm Password
                       </label>
                       <input
@@ -262,8 +258,7 @@ export default class ForgetPassword extends Component {
                   className="btn btn-link float-left mt-3"
                   onClick={() => {
                     window.location.href = "/";
-                  }}
-                >
+                  }}>
                   Sign In
                 </button>
                 <button
@@ -271,8 +266,7 @@ export default class ForgetPassword extends Component {
                   className="btn btn-primary float-right mt-3"
                   onClick={() => {
                     this.handleSubmit();
-                  }}
-                >
+                  }}>
                   Submit
                 </button>
               </form>
@@ -285,8 +279,7 @@ export default class ForgetPassword extends Component {
           open={this.state.OpenLoader}
           onClick={() => {
             this.setState({ OpenLoader: false });
-          }}
-        >
+          }}>
           <CircularProgress color="inherit" />
         </Backdrop>
         <Snackbar
@@ -303,16 +296,14 @@ export default class ForgetPassword extends Component {
               <Button
                 color="secondary"
                 size="small"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 UNDO
               </Button>
               <IconButton
                 size="small"
                 aria-label="close"
                 color="inherit"
-                onClick={this.handleSnackBarClose}
-              >
+                onClick={this.handleSnackBarClose}>
                 <CloseIcon fontSize="small" />
               </IconButton>
             </React.Fragment>
