@@ -597,7 +597,7 @@ export default class CustomerDashboard extends Component {
 
   render() {
     let state = this.state;
-    let self = this;
+    let self = this.self;
     console.log("state : ", state);
     return (
       <div className="CustomerDashboard-Container">

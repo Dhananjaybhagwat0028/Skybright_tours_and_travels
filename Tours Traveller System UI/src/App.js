@@ -15,7 +15,11 @@ function App() {
           <Route exact path="/AdminDashboard" component={AdminDashboard} />
           <Route exact path="/VendorDashboard" component={VendorDashboard} />
           <Route exact path="/ForgetPassword" component={ForgetPassword} />
-          <Route exac  path="/CustomerDashboard" component={CustomerDashboard}/>
+          <Route
+            required
+            path="/CustomerDashboard"
+            component={CustomerDashboard}
+          />
         </Switch>
       </Router>
     </div>
